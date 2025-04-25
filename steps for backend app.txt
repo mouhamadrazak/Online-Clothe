@@ -4172,4 +4172,5 @@ export default Orders;
 1 NEXT STEP THAT I WANT TO ADD THE LOGIC FOR FORGOT PASSWPORD
 2 THE OTHER STEP THAT I WANT TO ADD NOTIFCATE TO THE ADMIN SO IF ANY ORDERS COME IT WILL NOTIFICATE
 3 THE OTHER STEP THAT I WANT ALSO NOTIFCATE THE USER THAT IF I CHANGE THE STATUS FROM ADMIN IT WILL TELL THEM 
-
+******NOTTEEE If we get any error in render that because the bycrypt package we will 
+npm install bycryptjs and then we will change all the import in backend files to import bycryptjs

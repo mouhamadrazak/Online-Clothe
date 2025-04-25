@@ -1,5 +1,5 @@
 import 'react'
-import {Route,Routes } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import About from  './pages/About'
 import Product from './pages/product'
 import Cart from './pages/cart'
@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 {/*dyman lzm khali awl esm bl file capital*/}
 const App = () => {
   return (         
+    <BrowserRouter>
   <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>  {/*bs bdi efham kel code la shu baamol elh lmouse whyde lal screensize*/}
     <ToastContainer/> {/* this to add alert error  messag */  }
      <Navbar/>  {/* like this to connect the Navbar in the appjsx */}
@@ -38,8 +39,8 @@ const App = () => {
 display on all the pages */}
      
   </div>
-
-
+  
+  </BrowserRouter>
   )
 }
 
