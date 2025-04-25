@@ -1,0 +1,2095 @@
+the steps for our frontend 
+React Project Setup
+20:48 Create Pages and Routing
+31:21 Create Home Page components
+01:50:15 Create Collection Page
+02:46:21 Create Product page
+03:41:41 Cart and Place Order Page
+04:34:09 My Order and Login Page
+04:55:57 About and Contact Pag
+
+step one create folder of the name of the project 
+
+///////////////////////////////////////////////////////////
+
+step 2 install react vite and give a name of project inside the main name{
+
+// 1 npm create vite@latest
+
+///2 name of project : is frontend 
+
+///3 select react
+///4 select java script 
+///5 cd .backslash ./frontend/ backslash to change directory 
+///6 npm install
+/// iza bdna nt2kd eno nzl sah lzm ykun fi folder esmu node_moduls 
+}
+
+////////////////////////////////////////////////////////////////
+step 3 install react router dom hyda mtl el href="" lal navbar {
+
+1 npm install react-router-dom react-toastify
+
+2 npm run dev to start the server 
+
+3 open src folder and delete app.css
+
+4 open app.jsx and delete everything and type command (rafce)
+
+5 open assests folder and delete react svg 
+
+6 open index.css and clear everything 
+
+7 open index.html and updaite the title
+
+}
+
+//////////////////////////////////////////////////////////////
+
+step4 after we get all the photos that We need we move them to the assests folder {
+
+1 then inside the assests folder we will create assests.js  file
+
+2 inside the assets.js file we import all the img like this {
+
+import image2 from "./image2.png"}
+
+3 then we export the icon and dropdown menu and add to cart icon and logo and this thing into an object name like{
+
+export const assests = { krml ma et3zb wjib import la kel icon b3yt la esma mn lobject wbs 
+logo,
+hero_img,
+cart_icon,
+dropdown icon ,
+exchange_icon,
+profile_icon,
+.........
+}
+
+///////////////////////////////////////////////////////
+step 5 we will create an array object of name product and that array will cotain more than  10-100 object like this
+
+and each object representing a single product 
+
+export const product = [ 
+
+      {   // first product 
+
+          {   _id : "aaaaa",
+    name:"woman round neck cotton top",
+    description:"A lightweight usalliy knitted pulled close fitting and ...",
+    price:100,
+    Image: [abaya1] , 
+    category :"woman",
+    subCategory:"topwear",
+    sizes : ["S","M","L"],
+    date: 2020298383,
+    bestseller:true, 
+   }, 
+
+   {   /* product 2 */ 
+    _id : "aaaab",
+    name:"Men round neck neck pure cutton T shirt",
+    description:"A lightweight usalliy knitted pulled close fitting and ...",
+    price:200,
+    Image: [abaya1,abaya2,abaya3] , 
+    category :"woman",
+    subCategory:"topwear",
+    sizes :["S","M","L"],
+    date: 2020298383,
+    bestseller:true,
+   }, 
+]    
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+(step 6) then we will install the tailwindcss hyda 3shen fye ektob css bl classname directly bdun 3azeb 
+
+1 kel lmshkle t3it el error w run hye enu lzm aamol cd la esm lproject 
+baada npm run dev 
+cd frontend 
+npm run dev
+
+////////////////////////////////////////////////////////////////////////////////////
+
+(step 7) then we create a folder with name pages to put all the navbar in this pages 
+
+1 why we create the pages folder 
+
+2 because in navbar for home and about us wkl leshya hydi bdi yehon bs ekbos 3lyon ykhdune
+3a safha l fiha lpages
+
+3 first file name 
+   1home.jsx => rafce 
+   2collection.jsx => rafce
+   3product.jsx =>rafce
+   4placeorder.jsx =>rafce
+   5orders.jsx => rafce 
+   6login.jsx => rafce
+   7contactus.jsx => rafce
+   8cart.jsx => rafce
+   9aboutus => rafce eee
+   
+10 then we will go to main jsx and do this to get support from reacts router dom //////*
+
+import 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom'
+
+createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+)
+  
+////////////*****
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+step 8 create componens folder 
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+step 9 creayte context folder 
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+step 10
+
+in app jsx add div 
+
+and inside the div add view port for all the device 
+
+it will be like this with the routes and the import 
+
+mport 'react'
+import {Route,Routes } from 'react-router-dom' // yufadal enu asme2 el files dawman ykun awala capital 
+import './pages/home'
+import './pages/collection'
+import './pages/about'
+import './pages/product'
+import Cart from './pages/cart'
+import Login from './pages/login'
+import Placeorder from './pages/placeorder'
+import Orders from './pages/orders' 
+{/*dyman lzm khali awl esm bl file capital*/}
+const App = () => {
+  return (         
+  <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>  {/*bs bdi efham kel code la shu baamol elh lmouse whyde lal screensize*/ }
+   
+
+     <Routes> {/* hydol el routes 3shen bs ekbos 3lyon ykhdune al pages t3iton bel navbar*/}
+       <Route path='/' element = {<home/>} />  // path means the way of the home and its like the HREf so when i click on home its go to the                home page in pages
+       <Route path='/collection' element = {<collection/>} />
+       <Route path='/about' element = {<about/>} />
+       <Route path='/contact' element = {<contact/>} />
+       <Route path='/product/:productId' element = {<product/>} />
+       <Route path='/cart'  element = {<Cart/>} />
+       <Route path='/login'  element = {<Login/>} />
+       <Route path='/place-order'  element = {<Placeorder/>} />
+       <Route path='/orders'  element = {<Orders/>} />
+      </Routes>
+  </div>
+
+
+  )
+}
+
+export default App
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+step 11 
+after we routes all the file pages we create in componens a Navbar.jsx
+
+then we will ad the nav bar to the appjsx inside the div like this 
+
+import Navbar from './componens/Navbar'
+const App = () => {
+  return (         
+  <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>  {/*bs bdi efham kel code la shu baamol elh lmouse whyde lal screensize*/ }
+   
+     <Navbar/> {/* like this to connect the files in the appjsx */}
+     <Routes> {/* hydol el routes 3shen bs ekbos 3lyon ykhdune al pages t3iton bel navbar*/}
+       <Route path='/' element = {<home/>} />
+       <Route path='/collection' element = {<collection/>} />
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+step 12
+
+in nav bar we will import the assets/assests.js to import the photos and everything 
+like this
+
+import {assests} from '../assets/assests'
+import {NavLink} from 'react-router-dom'
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+step 13
+
+  we will get the logo from the assets object .logo 
+
+ <div className='flex items-center justify-between py-5 font-medium'>
+        <img src={assests.logo_dado} className='w-36' alt="" />
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+step 14 
+then we will create the ul for the nav links 
+                         
+ overflow hidden yaani hyda el nav links kello ma bbayn 3al small screens 3shen naaaml menu bar 
+
+like this  <ul className='hidden sm:flex gap-5 text-sm text-gray-700'> {/* its hidden mean hidden for small screen flex */ }
+
+           <NavLink to = '/' className= 'flex flex-col items-center gap-1'>
+           
+                <p>Home</p>
+                <hr className=' w-2/4 border-none h-[1.5px] bg-gray-700'/>
+
+           </NavLink>
+
+the hr means 
+
+w-2/4 → Sets the width to 50% of the parent container (2/4 = 1/2).
+border-none → Removes the default border of the <hr> element.
+h-[1.5px] → Sets a custom height of 1.5 pixels for the line.
+bg-gray-700 → Applies a dark gray background color to the <hr>, making it visible.
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+step 15 
+
+copy the nav link and paste it three times like this 
+
+
+<ul className='hidden sm:flex gap-5 text-sm text-gray-700'> {/* its hidden mean hidden and for small screen flex */ }
+
+             {/* *****************Home Link********************** */ }
+
+           <NavLink to = '/' className= 'flex flex-col items-center gap-1'>
+
+                <p>HOME</p>
+                <hr className=' w-2/4 border-none h-[1.5px] bg-gray-700'/>
+
+           </NavLink>
+               
+             {/* *****************collection Link********************** */ }
+
+             <NavLink to = '/collection' className= 'flex flex-col items-center gap-1'>
+        
+                <p>COlLCTION</p>
+                <hr className=' w-2/4 border-none h-[1.5px] bg-gray-700'/>
+
+           </NavLink>
+ 
+             {/* *****************about Link********************** */ }
+             <NavLink to = '/about' className= 'flex flex-col items-center gap-1'>
+           
+                <p>ABOUT</p>
+                <hr className=' w-2/4 border-none h-[1.5px] bg-gray-700'/>
+            
+           </NavLink>
+ 
+             {/* *****************contact Link********************** */ }
+            <NavLink to = '/contact' className= 'flex flex-col items-center gap-1'>
+           
+                <p>CONTACT </p>
+                <hr className=' w-2/4 border-none h-[1.5px] bg-gray-700'/>
+
+           </NavLink> 
+
+
+
+        </ul>
+
+sooo now when i click on any nav bar that will take me to the page with slash of the file 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+step 16 then we will add the hidden for the 
+ <hr className=' w-2/4 border-none h-[1.5px] bg-gray-700 hidden '/> 
+
+to hidden ehte under line and when i click it will show
+
+and in index.css well create
+
+a.active hr {
+    display : block ; /* mean make it visible */ 
+}
+
+so now bsir kel ma ekbos ala esm mn el nav link bytl3 thto khat 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+step16 for the ico search and profile and shipping bag 
+
+
+\ <div className='flex items-center gap-1'>  {/*main div*/ }
+
+                  {/* ///////////////search icon bar /////////////////////*/}
+    <img src={assests.search_icon} className='w-14 cursor-pointer' alt="ur connection slow" />
+
+             {/*/////////////////////profile icon bar  ////////////////////// */ }
+
+      <div className='group relative'>  {/*relative iza fi tnen box bsiru iza fetu bba3d 3adi */ }
+          <img src={assests.profile_icon} className='w-7 cursor-pointer' alt="prf icon" />
+
+           {/* group-hover block mean on hover show the group and hidden la nkhfyon wybynu onhover */}
+       <div className='dropdown-menu group-hover:block hidden absolute  right-0 pt-4 '> 
+
+           <div className=' flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded '>
+                   <p className='cursor-pointer hover:text-black'>My Profile</p>
+                   <p className='cursor-pointer hover:text-black' > Orders </p>
+                   <p className='cursor-pointer hover:text-black'>Logout </p>
+                </div>
+            </div>
+       </div>   step 17 //// inside the first 2 div we create a link  for the add to cart just like the href 
+
+                 {/* //////////////////////add to cart ////////////////////// */ }
+       <Link to='/cart' className='relative'>  {/* link nafs el href link to so ana bs ekbos al cart btkhdne al page t3ita */ }
+         <img src={assests.shoppping_icon } className='w-9 min-w-5' alt="" />
+       </Link>
+
+  </div>
+</div>
+      
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+step 18 the menu bar icon 
+       {/* /////////////////Menu icon /////////////////// */ }
+              <img src={assests.menu_icon} className='cursor-pointer sm:hidden w-5 ' /> {/* min width men el 640px screen size bkun lmenu hidden */ }
+  
+  </div> 
+</div>
+
+then we will create a const var 
+
+const [visible,setVisible] = useState(false);
+
+then we will do 
+<img onClick={()=>setVisible(true)} src={assests.menu_icon} className='cursor-pointer sm:hidden w-5 ' /> {/* min width men el 640px screen size bkun lmenu hidden */ }
+
+on click make it true but hide it from above 640 px screen 
+
+then 
+/////////////// 
+the close bare menu 
+
+{/* sidebar menu for small screen */ }                                                      {/* its mean if the visible == true then width is full else width is 0 */ }
+        <div className={`absolute top-0 right-2 bottom-0  overflow-hidden  backdrop-blur-[1.5px]  transition-transform duration-500 hover:translate-x-3 ${visible == true ?  'w-full' : 'w-0'}`}>
+            <div className='flex flex-col text-gray-600'>
+                  {/* onclick b div 3shen bs ekbos 3l back kmn ytl3ni mn el bar icon */ }
+                <div onClick={()=>setVisible(false)} className='flex items-center gap-0 p-3 cursor-pointer'>
+                     <img  src={assests.dropdown_menu} className =' w-5 h-4 rotate-180' alt="" />
+                         <p>back</p>
+                </div>
+                   
+then we well add the links 
+
+ <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border hover:text-red-300 '  to='/'>HOME</NavLink>
+                 <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border hover:text-red-300'  to='/collection'>COLLECTION</NavLink>
+                 <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border hover:text-red-300'  to='/about'>ABOUT</NavLink>
+                 <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border hover:text-red-300'  to='/contact'>CONTACT</NavLink>
+            </div>                                                          
+        </div>
+</div>
+
+then bnkun khalasna el nav bar links 
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+step19
+we do any disane that we need 
+
+1create the herojsx 
+
+2inside the home file in pages we import the hero file and put it inside the div 
+
+3 import the home file in the appjsx and importet abl ekhr whde htayta lmafrud b trtib 
+
+4 then if we need to change the font color of anything 
+
+5we well search for google font and in google font we need the outfit style amd prata font
+
+6 we well go to index.css and we well paste the code 
+
+7 then we well get the prata css code like this 
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+8 after this we well do for all the element in css styles of outfit like this
+
+*{
+  font-familiy;outgit;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+step20 we well create a file name inside the context by the name 
+of [shopcontext.jsx]
+
+1 then we will get the libary of text context like this 
+//////////////////////////////////////////////////////////////
+
+what is the context ?
+/* what is the context 
+n React, Context is a feature that allows you to share values
+ (like variables, functions, or states) across the component tree
+  without having to pass props manually at every level. It helps 
+  avoid prop drilling, making state management easier  
+  Your code is using React Context API to create a global store for your application. 
+
+  1. Creating Context
+
+export const ShopContext = createContext();
+createContext() creates a new context object called ShopContext.
+This context will be used to share data across components.
+
+2. Defining the Context Provider
+
+const ShopContextProvider = (props) => {
+This is a context provider component that wraps around parts of the app wher
+e you want to provide shared data.
+
+3. Defining Shared Values
+
+const currency = "$"; 
+const delivery_fee = 10;
+const value = { product, currency, delivery_fee };
+This value object contains the data (product, currency, delivery_fee) 
+that will be shared across components.
+4. Providing Context to the Component Tree
+
+
+return (
+  <ShopContext.Provider value={value}>
+    {props.children}
+  </ShopContext.Provider>
+);
+
+ShopContext.Provider makes value accessible to all child components.
+{props.children} ensures that any component wrapped inside <ShopContextProvider> can use the context.
+5. Using Context in a Component
+To use this context inside a child component:
+
+
+import { useContext } from "react";
+import { ShopContext } from "../context/ShopContextProvider";
+
+const SomeComponent = () => {
+  const { currency, delivery_fee } = useContext(ShopContext);
+  
+  return <p>Delivery Fee: {currency}{delivery_fee}</p>;
+};
+useContext(ShopContext) allows us to access the shared values inside any component.
+Why Use Context API?
+Avoids prop drilling (passing props through multiple components).
+Centralized state management for app-wide data.
+Easier updates: Changing currency in ShopContextProvider updates it across all components automatically.
+Would you like a more advanced example with state management? 🚀
+
+*/ 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+step 21 crate inside the components a file with a name Latestcollection
+
+1 then put it the home page 
+like this 
+
+const Home = () => {
+  return (
+    <div>
+   <Hero/> 
+   <LatestCollection/> 
+    </div>
+  )
+}
+
+3then in the LatestCollection we will do this 
+
+import React, { useContext } from 'react'
+import { ShopContext } from '../context/ShopContext'
+
+const LatestCollection = () => {
+    const {product} = useContext(ShopContext); this the accses fpr the product 
+    console.log(product);
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+export default LatestCollection 
+
+4 then we will put the shop context provider to get help in  the main jsx like this 
+
+createRoot(document.getElementById('root')).render(
+  <BrowserRouter> {/*druri ta ekhod support bel app jsx mn browserrouter*/}
+  <ShopContextProvider>  {/*we well get supported from shop context provider*/}
+         <App/>               
+  </ShopContextProvider>
+  </BrowserRouter>,
+)
+
+/////////////////////////////////////////////////////////////////////
+NEXT STEP 22
+
+WE WILL crate a file name in the componens thats will be as title.jsx
+1 then in the title we do this 
+
+
+const Title = ({text1,text2}) => { {/* jebna text1 w text 2 */ }
+  return (
+    <div className='inline-flex gap-2 items-center mb-3 '> 
+           <p className='text-gray-500'>{text1}<span className=' text-gray-700 font-medium'>{text2}</span></p>
+           <p className='w-8 sm-12 h-[1px] sm: h[2px] bg-gray-700'></p>
+    </div>
+  )
+}
+
+2 thenn inside the latest collection we will do this 
+  return (
+    <div className='my-10'>
+      <div className='text-center py-8 text-3xl '>
+          <Title text1={'LATEST '} text2={'COLLECTION'} /> {/* 3mlt page title w 3dalt fya elh wjbta a jehz */}
+          <p className=' w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, sequi. Aliquam sunt quos ratione sit deleniti ut fugiat iure esse harum blanditiis, culpa id est molestias explicabo, ad incidunt perspiciatis
+          </p>
+      </div>
+
+    </div>
+  )
+
+4 then we will display the product data by storing the product in state variable
+and we will get a copy from the original array like this 
+
+onst LatestCollection = () => {
+           {/* 3byna el use state be emty array */ }   
+    const [latestProduct,setLatestProduct]= useState([]);
+    const {product} = useContext(ShopContext); {/* hk bysht8l el shopcontext jebt el array te3 lproduct bdun azeeb */  }
+   {/*  console.log(product); to see that eu f3lan jebna el data t3it el array */ }
+   useEffect(()=>{
+     setLatestProduct(product.slice(0,10)); {/*awl shi .slice jebna neskha an el array krmel bi 7al ana ghayrt feya ma ytghayar b neskha laslye wjbt 0 la 10 product */ }
+   },[]) 
+   {/* this return emoy array */ }
+
+   ///////////////////////exaample for slice function and .map function  /////////////////////////////////////////////////////
+
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const slicedNumbers = numbers.slice(0, 5); // Gets elements from index 0 to 4
+
+console.log(slicedNumbers); // Output: [1, 2, 3, 4, 5]
+console.log(numbers); // Original array remains unchanged
+
+
+example for the .map function 
+The .map() method loops through an array and creates a new array by applying a function to each item.
+
+array.map((element, index, array) => { 
+  // return new value for each element
+});
+element: The current item in the loop.
+index (optional): The position of the item.
+array (optional): The full original array.
+Example:
+js
+Copy
+Edit
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num * 2);
+
+console.log(doubled); // Output: [2, 4, 6, 8, 10]
+In Your Code (If You Use .map() for Displaying Products):
+
+
+latestProduct.map((item) => (
+  <div key={item.id}>
+    <h2>{item.name}</h2>
+    <p>{item.price}$</p>
+  </div>
+));
+
+This loops through latestProduct and displays each product’s name and price.
+
+Key Differences: 
+.slice() vs .map()
+Method	Purpose	Modifies Original Array?	Returns
+.slice(start, end)	Extracts part of an array	❌ No	A new array
+.map(callback)	Transforms each item in an array	❌ No	A new array
+*/ }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+NEXT STEP 23
+create a new file to display the array item with the name productitem.jsx
+
+then we willl do this 
+
+import React, { useContext } from 'react'
+import { ShopContext } from '../context/ShopContext'
+import { Link } from 'react-router-dom';
+                     {/* from the product */ }
+const ProductItem = ({id,image,name,price}) => {
+    const{currency} =useContext(ShopContext);
+  return (
+   <Link className='text-gray-700 cursor-pointer ' to={`/product/${id}`}> {/* this link to the page product and the id of the product */ }
+      <div className='overflow-hidden '> 
+        <img className='hover:scale110 transition ease-in-out ' src={image[0]} alt="" /> {/* bring the img */ } {/* image of index 0 imagr ra2m 0 */ }
+      </div>
+      <p className='pt-3 pb1 text-xs '>{name}</p> {/*bring the name to dpslay */ }
+      <p className='text-xs font-medium '>{currency}{price}</p> {/* bring the price */ }
+   </Link>
+  )
+}
+
+
+2 then inside the latest collection to display thee productitem
+like this to show it in the screen \
+
+ {/* RenderingProducts */ }
+        <div className='grid grid-cols-2 sm:(grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'> {/* ade lcolums b albo la kel screen */}
+          {
+           latestProduct.map((item,index)=>(
+            <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price}/>
+           ))
+          }
+
+3then we will make the logo linked for the home page 
+<Link to={'/'}> <img src={assests.logo_dado} className='w-36' alt="" /> </Link> 
+
+4then we will make the navbar for the small screen size that we am on the navbar 
+b2li 3ala aya page ana we2f 
+bel index.css baaml hk
+
+@media (max-width: 640px){ /* 3shen el navbar bs kun fethu aarf 3ala aya safha w2d */ 
+a.active{
+  background-color:pink;
+  color:white;
+}
+} 
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+STEP24
+
+1 we well create a best seller file in the componens for the true item in the product
+
+2 inside the best seller we do this ////
+
+import React, { useContext, useEffect, useState } from 'react'
+import { ShopContext } from '../context/ShopContext'
+import Title from './Title';
+
+const BestSeller = () => {
+     {/* nafs steps ta3it el Latest collection */ }
+    const {product} = useContext(ShopContext);
+    const [bestSeller,setBestSeller] = useState([]); 
+    useEffect(()=>{ // use effect hye on page loaded bsir hek
+        const bestProduct = product.filter((item)=>(item.bestseller));
+        setBestSeller(bestProduct.slice(0,5))
+    },[])
+    {/* ////////////////////explain this code below the export default///////////////////////// */ }
+  return (
+   <div className='my-10 '>
+     <div className='text-center text-3xl py-8'>
+           <Title text1={'BEST'} text2={'SELLER'}/>{/* jbneh dghri bdun azebb */ }
+           <p className=' w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem porro dolorum quo fugit possimus ut suscipit, officia deserunt esse at, quas eaque error nemo. Praesentium consequuntur nobis fuga rem ea.
+           </p>
+
+         {/* RenderingProducts */ }
+           {/* just copy paste from the Latest collection and chage to t Bestseller */ }
+        <div className='grid grid-cols-2 sm:(grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'> {/* ade lcolums b albo la kel screen */}
+          {
+           BestSeller.map((item,index)=>(
+            <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price}/>
+           ))
+          }
+        </div>
+        
+     </div>
+   </div>
+  )
+}
+
+export default BestSeller
+
+{/* explainn for the filtering 
+    Using useEffect() to Filter Best Sellers
+
+useEffect(() => {
+    const bestProduct = product.filter((item) => item.BestSeller);
+    setBestSeller(bestProduct.slice(0, 5));
+}, []);
+Let’s break this down:
+
+Step 1: Filtering Best-Selling Products
+
+const bestProduct = product.filter((item) => item.BestSeller);
+.filter() loops through the product array and returns only the products where BestSeller is true.
+This creates a new array (bestProduct) that contains only best-selling items.
+
+Step 2: Selecting the First 5 Best Sellers
+
+setBestSeller(bestProduct.slice(0, 5));
+.slice(0, 5) extracts the first 5 products from bestProduct.
+setBestSeller() updates the bestSeller state with these 5 items.
+
+Step 3: Running useEffect() Only Once
+
+}, []);
+The empty [] dependency array ensures that useEffect() runs only once when the component mounts.
+This prevents unnecessary re-renders.
+Final Breakdown of Execution Order
+Component Renders for the First Time
+
+bestSeller is initially an empty array ([]).
+useEffect() is triggered because the component just mounted.
+Fetching Best Sellers
+
+product.filter((item) => item.BestSeller) filters the best-selling products.
+.slice(0,5) keeps only the top 5.
+setBestSeller(bestProduct.slice(0,5)) updates the state.
+Component Rerenders
+
+bestSeller now contains the top 5 best-selling products.
+
+*/ }
+
+
+////3 then to display the best seller we will put the best seller
+inside the home page like this 
+
+
+const Home = () => {
+  return (
+    <div>
+   <Hero/> 
+   <LatestCollection/> 
+   <BestSeller/>
+   
+    </div>
+  )
+}
+//////////////////////////////////////////////////////////////////////////////////////
+STEP25
+WE WILL CREATE INSIDE the compnents folder a file with a name OurPolicy.jsx 
+//
+1{ then inside the our policy we do this 
+
+import React from 'react'
+import { assests } from '../assets/assests'
+
+const OurPolicy = () => {
+  return (
+    <div className=' flex flex-col sm:flex-row justify-around gap-12 text-center py-20 text-xs sm:text-sm md:text-base text-gray-700  '>
+       <div>
+        <img src={assests.exchange_icon} className='w-12 m-auto mb-5 ' alt="" />
+        <p className='font-semibold '>Easy Exchange Policy </p>
+        <p className='text-gray-400'>we offer hassle exchange policy </p>
+       </div>
+
+    </div>
+  )
+}
+
+export default OurPolicy}
+//
+2{we will display the Our policy file inside the Home page like this 
+
+const Home = () => {
+  return (
+    <div>
+   <Hero/> 
+   <LatestCollection/> 
+   <BestSeller/>
+   <OurPolicy/>
+   
+    </div>
+  )
+}
+
+}
+
+//
+3 then we will add more 3 policy just copy paste like this  {
+we will just change the img and the title 
+const OurPolicy = () => {
+  return (
+    <div className=' flex flex-col sm:flex-row justify-around gap-12 text-center py-20 text-xs sm:text-sm md:text-base text-gray-700 '>
+        {/* ////////////////////////policy_1////////////////////////// */ }
+       <div>
+        <img src={assests.exchange_icon} className='w-12 m-auto mb-5 ' alt="" />
+        <p className='font-semibold '>Easy Exchange Policy </p>
+        <p className='text-gray-400'>we offer hassle exchange policy </p>
+       </div>
+       {/* ////////////////////////policy_2////////////////////////// */ }
+       <div>
+        <img src={assests.Quality_icon} className='w-12 m-auto mb-5 ' alt="" />
+        <p className='font-semibold '>3 Days  Reutrn Policy  </p>
+        <p className='text-gray-400'>We provide 3 days return policy  </p>
+       </div>
+       {/* ////////////////////////policy_3////////////////////////// */ }
+       <div>
+        <img src={assests.support_icon} className='w-12 m-auto mb-5 ' alt="" />
+        <p className='font-semibold '> Best Customer Support</p>
+        <p className='text-gray-400'>we provide 24/7 Customer Support </p>
+       </div>
+
+    </div>
+    
+  )
+}
+
+}
+//////////////////////////////////////////////////////////////////////////////////////
+STEP26 we will create a new components file with the name NewsLetterBox.jsx
+////
+1{we do inside the page like this 
+
+const NewsLetterBox = () => {
+  return (
+    <div className='text-center'>
+        <p className='text-2xl font-medium text-gray-800'>Subscibe Now & Get 20% off</p>
+    
+    </div>
+  )
+}
+
+
+}
+2then we will display it inside the home page {
+  
+const Home = () => {
+  return (
+    <div>
+   <Hero/> 
+   <LatestCollection/> 
+   <BestSeller/>
+   <OurPolicy/>
+   <NewsLetterBox/>
+    </div>
+  )
+}
+
+}
+////
+3 then we will updaite on the NewsLetterBox like this 
+
+const NewsLetterBox = () => {
+     
+     const onSubmithandler = (event) =>{
+         event.preventdefault(); {/* this for if we submit now the page will not realoded */ }
+     }
+  return (
+    <div className='text-center'>
+        <p className='text-2xl font-medium text-gray-800'>Subscibe Now & Get 20% off</p>
+        <p className='text-gray-400 mt-3 '>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit
+        </p>
+        <form onSubmit={onSubmithandler} className='w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 pl-3'>
+            
+            <input className='w-full sm:flex-1 outline-none border p-2 sm:text-sm text-xs' type="email" placeholder='Enter Your Email Here ' required/>
+              <button type='submit' className='bg-black text-white text-xs px-10 py-4 '> SUBSCRIBE</button>
+        </form>
+    </div>
+  )
+}
+//////////////////////////////////////////////////////////////////////////////////////
+STEP27
+1 then will create a footer file inside the components 
+//
+2 then we will put the footer file inside the app jsx after those
+ {
+  return (         
+  <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>  {/*bs bdi efham kel code la shu baamol elh lmouse whyde lal screensize*/}
+       
+     <Navbar/>  {/* like this to connect the Navbar in the appjsx */}
+    {/* lezm el import b tertib kel whde jdide tkun tht l adime */ }
+     <Routes> {/* hydol el routes 3shen bs ekbos 3lyon ykhdune al pages t3iton bel navbar*/}
+       <Route path='/' element = {<Home/>} />
+       <Route path='/collection' element = {<collection/>} />
+       <Route path='/about' element = {<about/>} />
+       <Route path='/contact' element = {<contact/>} />
+       <Route path='/product/:productId' element = {<product/>} />
+       <Route path='/cart'  element = {<Cart/>} />
+       <Route path='/login'  element = {<Login/>} />
+       <Route path='/place-order'  element = {<Placeorder/>} />
+       <Route path='/orders'  element = {<Orders/>} />
+      </Routes>
+
+   //   <Footer/> //
+     
+  </div>
+
+
+  )
+}
+
+}
+why we put the footer inside the appjsx not the Home ? because we want the footer
+display on all the pages 
+
+3 then inside the footer we will create this {
+  //
+  import React from 'react'
+import { assests } from '../assets/assests'
+
+const Footer = () => {
+  return (
+    <div>
+        <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 mb-4 mt-40 text-sm '>
+            <div>
+                <img src={assests.logo_dado} className='mb-5 w-28 ' alt="" />
+                <p className='w-full md:w-2/3 text-gray-600'>
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ea repellendus voluptatem autem temporibus laudantium doloribus  
+                </p>
+            </div>
+
+            <div>
+         <p className='text-xl font-medium mb-5 '>COMPANY </p>
+           <ul className='flex flex-col gap-1 text-gray-600'>
+               <li>Home</li>
+               <li>About us</li>
+               <li>Delivery</li>
+               <li>Privacy policy</li>
+           </ul>
+         </div>
+
+           <div>
+          <p className='text-xl font-medium mb-5 '>GET IN TOUCH</p>
+          <ul className='flex flex-col gap-1 text-gray-600'>
+                <li>+794223...</li>
+                <li>contact@contact_us@gmail.com</li>
+         </ul>
+         </div>
+   </div>
+         <div>
+
+            <hr/> {/* frame */ }
+            <p className='py-5 text-sm text-center ' > Copyright 2025@Dby.com - All Right Reserved </p>
+         </div>
+    </div>
+  )
+}
+
+export default Footer
+}
+//
+//////////////////////////////////////////////////////////////////////////////////////
+STEP28 now wi will display the product inside the collection page 
+
+then we will finish kl safha hk 
+
+import 'react'
+import { useContext, useEffect, useState } from 'react'
+import { ShopContext } from '../context/ShopContext'
+import { assests } from '../assets/assests';
+import Title from '../componens/Title';
+import ProductItem from '../componens/ProductItem';
+
+const Collection = () => {
+
+  const {product} = useContext(ShopContext); {/* lwma he ma fye jib lproduct */ }
+  const[ShowFilter,SetShowFilter] = useState(false);
+
+  const [filterProduct,setFilterProduct] = useState([]);
+     useEffect(()=>{
+        setFilterProduct(product); {/* setFilterProduct(product.slice(0,5)); law bde jz2 copy mnon baaml hk bs hala bde yehon kellon */}
+     },[])
+  return (
+                
+    <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t '>   {/*flex row for laptop screen bynhtu l item jamb b3d */ }
+         {/* /////////////////sect1 filters option  /////////////////// */ }
+             <div className='min-w-60 '>
+                        {/*ala kelm kabse bttghyr marra true marra false */ }
+         <p onClick={()=>SetShowFilter(!ShowFilter)}  className='my-2 text-sm flex items-center cursor-pointer gap-1 '>FILTERS
+          <img src={assests.dropdown_icon} className={`h-5 w-5 sm:hidden ${ShowFilter===true?'rotate-90' : '' }`} alt="" />
+         </p>
+
+          {/* Category filter */ } 
+          <div className={`border border-gray-300 pl-5 py-3 mt-6 ${ShowFilter === true ? '' : 'hidden '} sm:block `}> {/* this to hide search bar filter from small screen and show it on big screen */ }
+             <p className='mb-3 text-sm font-medium'>CATEGORIES </p>
+
+          <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
+
+              <p className='flex gap-2 '>
+                <input className='w-3 'type="checkbox" value={'Men'} />Men
+              </p>
+
+              <p className='flex gap-2 '>
+                <input className='w-3 'type="checkbox" value={'Women'} />Women
+              </p>
+
+              <p className='flex gap-2 '>
+                <input className='w-3 'type="checkbox" value={'Kids'} />Kids
+              </p>
+
+               </div> 
+            </div>
+         
+         {/* Sub categories just copy categories filter and paste and change */ }
+          
+          <div className={`border border-gray-300 pl-5 py-3 my-5 ${ShowFilter === true ? '' : 'hidden '} sm:block `}> {/* this to hide search bar filter from small screen and show it on big screen */ }
+             <p className='mb-3 text-sm font-medium'>TYPE </p>
+
+          <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
+
+              <p className='flex gap-2 '>
+                <input className='w-3 'type="checkbox" value={'Topwear'} />Topwear
+              </p>
+
+              <p className='flex gap-2 '>
+                <input className='w-3 'type="checkbox" value={'Bottomwear'} />Bottomwear
+              </p>
+
+              <p className='flex gap-2 '>
+                <input className='w-3 'type="checkbox" value={'Winterwear'} />Winterwear 
+              </p>
+
+               </div> 
+            </div>
+         </div>
+         {/* right side */ }
+          <div className='flex-1'>
+
+            <div className='flex justify-between text-base sm:text-2xl mb-4'>
+                      <Title text1={'ALL '} text2={'COLLECTION'}/>
+                      {/*product sort */ }
+                      <select className='border-2 border-gray-300 text-sm px-2'>
+                        <option value="relavent">Sort By: Relavent</option>
+                        <option value="low-high">Sort By: low-high </option>
+                        <option value="high-low">Sort By: high-low</option>
+                      </select>
+            </div>
+               {/* ///////////////////map product//////////// */}
+                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6 '>
+                   {
+                    filterProduct.map((item,index)=>(
+                          <ProductItem key={index } name={item.name} id={item._id} price={item.price} image={item.image}/> 
+                    ))
+                   }
+                </div>
+          </div>
+    </div>
+  )
+}
+
+export default Collection
+
+////1 baada bdna nbarmej el checkbox filter 3shen iza bkbos al men ytla3 el men w iza bkbos woman m3 men nfs shi 
+
+ 3 then we will createt for the sub category and prices
+
+ const {product} = useContext(ShopContext); {/* lwma he ma fye jib lproduct */ }
+  const [ShowFilter,SetShowFilter] = useState(false);
+  const [filterProduct,setFilterProduct] = useState([]);
+  const [category,setCategory] = useState([]); {/* category → Stores selected categories as an array and setCategory → Updates the category state. */ }
+  const [subCategory,setSubCategory] = useState([]); {/* same as the category */  }
+  const [sortType,setSortType] = useState('relevent');
+
+
+  const toggleCategory = (e) => {  
+    /* e (event object) contains information about which category was clicked. */  
+    /* (e.target.value) is the category value from the clicked element. */  
+
+    if (category.includes(e.target.value)) {  
+        /* Checks if the clicked category already exists in the array. */  
+        setCategory(prev => prev.filter(item => item !== e.target.value));  
+        /* Removes the clicked category from category array using .filter(). */  
+    } else {  
+        setCategory(prev => [...prev, e.target.value]);  
+        /* If the category does not exist, add it to the array. */  
+    }  
+};
+
+      /* same logic as the first one nfs shi */ 
+
+     const toggleSubCategory = (e) =>{ 
+      
+      if (subCategory.includes(e.target.value)){
+        setSubCategory(prev=> prev.filter(item=> item !== e.target.value))
+          } else{  
+             setSubCategory(prev=> [...prev,e.target.value]) 
+        }
+    }
+
+
+    const applyFilter = () => {  
+      let productsCopy = product.slice(); // ✅ Create a copy of the product array  
+    
+      if (category.length > 0) { // ✅ Check if any category is selected  
+        productsCopy = productsCopy.filter(item => category.includes(item.category));  
+        // ✅ Keep only products that match selected categories  
+      }  
+      
+      if (subCategory.length > 0) { // ✅ Check if any category is selected  
+        productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));  
+        // ✅ Keep only products that match selected categories  
+      }  
+    
+      setFilterProduct(productsCopy); // ✅ Update state to show filtered products  
+    };
+    
+
+       /* ////// for the prices low and high filter  ///////*/ 
+
+    const sortProduct = () => {
+      let fpCopy = filterProduct.slice();  // Create a copy of filterProduct to avoid modifying the original array.
+  
+      switch(sortType) {
+          case 'low-high':  
+              setFilterProduct(fpCopy.sort((a, b) => (a.price - b.price)));  
+              // Sorts in ascending order (cheapest first).
+              break;
+  
+          case 'high-low':  
+              setFilterProduct(fpCopy.sort((a, b) => (b.price - a.price)));  
+              // Sorts in descending order (most expensive first).
+              break;
+  
+          default:  
+              applyFilter();  
+              // If sortType is not recognized, reset the filters.
+              break;
+      }
+  };
+  
+  useEffect(() => {
+      sortProduct();  // Runs the sorting function whenever sortType changes.
+  }, [sortType]);
+  
+     useEffect(() => {
+      applyFilter();
+    }, [category,subCategory] ); // ✅ Runs applyFilter() every time category changes
+     
+    useEffect(()=>{
+      setFilterProduct(product); {/* setFilterProduct(product.slice(0,5)); law bde jz2 copy mnon baaml hk bs hala bde yehon kellon */}
+   },[])
+     
+  return (
+
+  
+//////////////////////////////////////////////////////////////////////////////////////
+step29 we will open the shopcontext and 
+const ShopContextProvider = (props)=>{
+ 
+     const currency = "$"; /* here if i change the currency it will updaitet for  entire  page */ 
+     const delivery_fee = 10 ; 
+     const [search,setSearch] = useState('');
+     const [showSearch,setShowSearch] = useState(true)
+
+const value = { 
+     product , currency , delivery_fee ,  // i can accses this accross all the compnents mtl assests.jsx
+     search ,setSearch ,showSearch,setShowSearch
+} 
+
+2 then we will create a SearchBar.jsx file 
+
+3 then we will bring the const like this 
+
+const SearchBar = () => {
+    const {search,setSearch,showSearch,setShowSearch} = useContext(ShopContext);
+  return (
+    <div>
+
+    </div>
+  )
+}
+4 then we will display the page in app jsx like this after the navbar 
+     <Navbar/>  {/* like this to connect the Navbar in the appjsx */}
+     <SearchBar/> 
+
+5 then we will do this inside the search bar file
+import React, { useContext } from 'react'
+import { ShopContext } from '../context/ShopContext'
+import { assests } from '../assets/assests';
+
+const SearchBar = () => {
+    const {search,setSearch,showSearch,setShowSearch} = useContext(ShopContext);
+  return showSearch ? /* mean if its false return null */   ( 
+    <div className='border-t border-b bg-gray-50 text-center'>
+
+        <div className='inline-flex items-center justify-center border  border-gray-400 px-5 py-1 mx-3 my-5 rounded-full w-3/4 sm:w-1/2 '>
+               <input value={search} onChange={(e) => setSearch(e.target.value)} className='flex-1 outline-none bg-inherit text-sm' type="text" placeholder='Search' />
+               <img className='w-10'src={assests.search_icon} alt="" />
+        </div>
+           <img className='w-5 inline-flex cursor-pointer' onClick={()=>setShowSearch(false)} src={assests.close_icon} alt="" /> {/* inline flex yaane on same line flex klon w setshowbar on click bsir false whuwe asesan true */ }
+    </div>
+
+  ) : null
+}
+
+export default SearchBar
+
+6 then we wil do for the searchicon in headder that wen i click on the searchicon
+he will displayed the other search icon like this in the navbar 
+
+ <img onClick={()=>setShowSearch(true)} src={assests.search_icon} className='w-14 cursor-pointer' alt="ur connection slow" />
+
+7 then becuse the search bar showing in all pages i want it to hide from some pages 
+ open searchbar file 
+ then 
+
+ const SearchBar = () => {
+    const {search,setSearch,showSearch,setShowSearch} = useContext(ShopContext);
+    const [visible,setVisible] = useState(false);
+    const location = useLocation();
+
+    useEffect(()=>{  /* bhay tari2a am jib l path te3 location */ 
+              if (location.pathname.includes('collection')){
+                      setVisible(true);
+              }else{
+                      setVisible(false)
+              }
+    } ,[location])
+
+  return showSearch  && visible === true  ? /* mean if its false return null */   ( 
+
+//////////////////////////////////////////////////////////////////////////////////////
+step30 add the element for the search bar 
+
+we will open the collection page and
+
+1 add   const {product,search,showSearch} = useContext(ShopContext); {/* lwma he ma fye jib lproduct */ }
+
+2 in the applyilter we will add
+ const applyFilter = () => {  
+      let productsCopy = product.slice(); // ✅ Create a copy of the product array 
+
+      if (showSearch && search) { // iza true
+        productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+      }
+  
+3 then we will add showSearch and search for the useEffect
+     useEffect(() => {
+      applyFilter();
+    }, [category,subCategory,search,showSearch] ); // ✅ Runs applyFilter() every time category changes
+    
+
+//////////////////////////////////////////////////////////////////////////////////////
+step31 this for the product that when i click on any product it will take me to a new page
+with the info of the product 
+
+step 1 /31 {
+  open the product file and get the product id because on click it will take me to the id 
+ and then we will do this 
+import 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext'
+import { assests } from '../assets/assests';
+const Product = () => {
+  const { productId } = useParams(); // Get product ID from URL
+  const { product,currency} = useContext(ShopContext); // Get all products from ShopContext
+  const [productData, setProductData] = useState(false); // Stores selected product details
+  const [Image, setImage] = useState(''); // Stores the main product image
+
+  const fetchProductData = async () => {
+    product.map((item) => {
+      if (item._id === productId) { // If product ID matches the URL ID
+        setProductData(item); // Store the product details
+        setImage(item.image[0]); // Set the first image of the product
+        return null; // Exit the function
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchProductData(); // Run this function when component loads
+  }, [productId]);
+
+  return productData ? ( 
+    <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
+               {/*---------------- Productdata -----------*/}
+      <div className='flex gap-12 sm:gap-12 flex-col sm:flex-row '>
+        
+           {/*-------- product image------ */ }
+        <div className='flex-1 flex flex-col-reverse gap-3 sm:flex-row'>
+          <div className='flex flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full '>
+              {
+                productData.image.map((item,index)=>(
+                     <img onClick={()=>setImage(item)} src={item} key={index} className='w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer'/>
+                ))
+              
+              }
+          </div>
+         <div className='w-full sm:w-[80%]  '>
+             <img  className='w-full h-auto' src={Image} alt="" />
+         </div>
+        </div>
+         {/* --------- Product info ------------*/ }
+         <div className='flex-1 '>
+              <h1 className='font-medium text-2xl mt-0'>{productData.name}</h1>
+              <div className='flex items-center gap-1 mt-2 w-5 '>
+                       <img src={assests.star_icon} alt="" />
+                       <img src={assests.star_icon} alt="" />
+                       <img src={assests.star_icon} alt="" />
+                       <img src={assests.star_icon} alt="" />
+                       <img src={assests.star_icon} alt="" />
+                       <p className='pl-2'>(122)</p>
+
+              </div>
+             <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
+             <p className='mt-5 text-gray-500 md:w-[80%] '>{productData.description}</p>
+         </div>
+      </div>
+    </div> 
+     
+
+  ) : <div className='opacity-0'></div>; // If no product, render an empty div
+};
+
+
+}
+2then we will remove the scroll bar from the photos
+we will open the index.css and add this command {
+::-webkit-scrollbar{
+  display:none;
+}
+}
+
+3 then after we add the description  on the last p we willl bring the sizes like this 
+
+  <p className='mt-5 text-gray-500 md:w-[80%] '>{productData.description}</p>
+             <div className='flex flex-col gap-4 my-8 '>
+                   <p>Select Size </p>
+                   <div className='flex gap-2'>
+           {productData.sizes.map((item, index) => (  
+    // We use the `.map()` function because `sizes` is an array, and we need to loop over it.
+    <button className={`border py-2 px-4 bg-gray-100 `} key={index}> {item} </button>  
+    // `key={index}` → React requires a unique `key` for each element in a list to optimize rendering.
+    // `{item}` → Displays the value of the current size (e.g., "S", "M", "L").
+    // if i want more explain there is below this page 
+))}
+and for more explain to this code here {
+
+  /* more explain for the map and item and the key 
+productData.sizes = ["S", "M", "L", "XL"];
+then we will 
+<button key={0}> S </button>
+<button key={1}> M </button>
+<button key={2}> L </button>
+<button key={3}> XL </button>
+
+Is index necessary?
+The index is not always necessary, but React recommends using a key when rendering lists for better performance.
+If your data has a unique ID, use that instead of index as a key.
+Conclusion
+item → Refers to the value inside the array ("S", "M", "L", etc.).
+index → Refers to the position of that value in the array (0, 1, 2, 3...).
+Using .map() allows us to loop through an array and dynamically create elements.
+*/
+
+}
+
+5 then we will highlit the sizes if somone clicked {
+  wr will create a new use state like this  const [Size,setSize] = useState('')
+  and then 
+  like this <button onClick={()=>setSize(item)} className={`border py-2 px-4 bg-gray-100 ${item === Size ? 'border-orange-500' : ''}  `} key={index}> {item} </button> 
+
+  the item representing the value of the element array 
+       ------------explain for this -------------
+What it does: When the button is clicked, it updates the Size state with item.
+Example: If the button clicked represents size "M", then setSize("M") will run, updating the selected size.
+
+border py-2 px-4 bg-gray-100 → These are default styles for all buttons.
+${item === Size ? 'border-orange-500' : ''}
+This conditionally applies a red border (border-orange-500) only if the button's item value matches the currently selected Size.
+If item is not equal to Size, an empty string ('') is applied, meaning no extra styling.
+✅ Example in Action
+If the user selects "M", the button with "M" will have a red border, while other size buttons will not.
+
+}
+
+6then we will add the add to cart button {
+  like this after the two div 
+
+   {productData.sizes.map((item, index) => (  
+    // We use the `.map()` function because `sizes` is an array, and we need to loop over it.
+    <button onClick={()=>setSize(item)} className={`border py-2 px-4 bg-gray-100 ${item === Size ? 'border-orange-500' : ''}  `} key={index}> {item} </button>   //  ${item === Size ? 'border-orange-500' : ''} → This conditionally applies a red border (border-orange-500) only if  the button's item value matches the currently selected Size.   
+    // `key={index}` → React requires a unique `key` for each element in a list to optimize rendering.
+    // `{item}` → Displays the value of the current size (e.g., "S", "M", "L").
+    // if i want more explain there is below this page 
+))}
+
+                   </div>
+             </div>
+             <button className='bg-black text-white px-8 py-3 active:bg-gray-700'>ADD TO CART </button>
+               <hr className='mt-8 sm:w-[80%]' />
+              <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1 '>
+                <p>100% Original Product</p>
+                <p>Cash On Delivery is Available On This Product </p>
+                <p>Easy Return And Exchange Policy Within 3 Days </p>
+
+}
+
+7 and now the descripition and view section in the same page with a new div after close all the and let the last div 
+
+ {/*-----------Description & review Section ----------- */ }
+       <div className='mt-20 '>
+        <div className='flex'>
+          <b className='border px-5 py-3 text-sm '> Description </b>
+          <p className='border px-5 py-3 text-sm '>reviwes(122) </p>
+        </div>
+            <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500 '>
+            <p> i can add anything like  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis odio fugiat accusamus quae tempore harum aliquid non mollitia veritatis excepturi ex necessitatibus dolores velit consectetur nesciunt sint, laudantium sapiente itaque.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem ea quos soluta neque laudantium, hic mollitia eum. Nulla ut officia optio harum, at, minima, dolores dolorem sunt esse dolorum debitis.</p>
+            </div>
+       </div>
+    </div> 
+
+{
+
+8 and now we will create the related product   and there all in the same page  {
+Create a new file  compnents with the name RelatedProducts.jsx
+
+import React, { useContext, useEffect } from 'react'
+import { ShopContext } from '../context/ShopContext'
+import { useState } from 'react';
+import Title from './Title';
+import ProductItem from './ProductItem';
+
+const RelatedProducts = ({category,subCategory}) => {
+    // and we will get the category and subcategory from use context
+    const {product} = useContext(ShopContext);
+    const [related,setRelated] = useState([]);
+     
+    useEffect(()=>{
+        if (product.length > 0 )   {
+            let productsCopy = product.slice(); // amlt new var whtet b albu copy lal array products
+            productsCopy = productsCopy.filter((item) =>category === item.category ); // iza hal fi2a btsewi lvalue te3 lfi2a tenye fa 3rod l related 
+            productsCopy = productsCopy.filter((item) =>subCategory === item.subCategory); // same for the subcategory if is matching then keep it 
+                    setRelated(productsCopy.slice(0,5));
+        }   
+    },[product])
+  return (
+    <div className='my-24'>
+        <div className='text-center text-3xl py-2 '>
+        <Title text1={'Related'} text2={'Product '} />
+        </div>
+     <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6' >
+           {related.map((item,index)=>(
+               <ProductItem key={index} id={item._id } name={item.name} price={item.price} image={item.image}/>
+           ))} 
+     </div>
+    </div>
+  )
+}
+
+export default RelatedProducts
+
+}
+
+9 then we will add the related page into the product page like this 
+{
+    {/*---------------Display the Related Product ------- */ }
+        
+               <RelatedProducts category={productData.category} subCategory={productData.subCategory}/>
+             
+    </div>  // this main div 
+     
+  
+  ) : <div className='opacity-0'></div>; // If no product, render an empty div
+};
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+step31 now we will create the add to cart and make it work
+
+we will create a state var in the usecontext that when i click on the add to cart button 
+it will take me to the page 
+
+
+like this {
+we will open the ShopContext file and create this 
+
+ const [cartItems,setCartItems] = useState({});
+     
+     const addToCart = async (itemID, size) => { // async yaani wa2t bfut a shi wbrj3 elh ma byaaml relod lal page
+
+      let cartData = structuredClone(cartItems); 
+       // `structuredClone(cartItems)` → Creates a deep copy of the cartItems object.
+      // This ensures that modifying `cartData` doesn't directly change `cartItems` before updating the state.
+  
+      if (cartData[itemID]) {  // Checks if the item with the given `itemID` already exists in the cart.
+  
+          if (cartData[itemID][size]) {  // Checks if the selected size of this item already exists in the cart.
+              cartData[itemID][size] += 1;  // If it exists, increase the quantity by 1.
+          } 
+  
+          else {  
+              cartData[itemID][size] = 1;  // If the size does not exist, initialize it with a quantity of 1.
+          }
+      } 
+  
+      else {  
+          cartData[itemID] = {};  // If the item does not exist in the cart, create an empty object for it.
+          cartData[itemID][size] = 1;  // Set the size with a quantity of 1.
+      }
+      setCartItems(cartData);
+  };
+
+    useEffect(() => {
+        console.log(cartItems);
+        
+
+}
+2 then we will open the product page and add the funciton here
+ const { product,currency,addToCart} = useContext(ShopContext);
+
+3 then we will add it inside the button 
+inside the product page like this 
+  <button onClick={()=>addToCart(productData._id,Size)} className='bg-black text-white px-8 py-3 active:bg-gray-700'>ADD TO CART </button>
+
+4 after this iza whd 3ml add to cart bidun ma yaamol select lal size bdna naamlo error messg select the size
+first we will add the tostify link from google 
+
+we will get this link 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+and add it into app.jsx 
+
+5 then we will add it here on the top of return div 
+    <ToastContainer/> 
+     <Navbar/>  {/* like this to connect the Navbar in the appjsx */}
+     <SearchBar/>
+
+then  we will open shopcontext and make the if condtiton
+3dalt shi ana 3shen iza kbast a size yaamol select iza shil mahal ma kbast bdi aamol unselect
+  onClick={() => setSize(prevSize => prevSize === item ? '' : item)}  fa 3mlta hek a chatgbt
+
+6 then we will add the logic for the addtocart icon that when i click
+to the add to cart it will show the quantity on the addtocart icon 
+
+inshop context we will add a function with the name gercartCount
+
+  const getCartCount = () =>{
+      let totalCount = 0 ;
+      for (const items in cartItems){
+        for(const item in cartItems[items]){
+          try{
+            if(cartItems[items][item]);
+            totalCount += cartItems [items][item];
+          }
+          catch(error){
+          }
+         }
+        }
+      }
+      return totalCount ; 
+       saraha msh fehm shi lahek ha jib explain 
+  }
+ 7 then w will add it here to acsses it in any compnents 
+    
+const value = { 
+     product , currency , delivery_fee ,  // i can accses this accross all the compnents mtl assests.jsx
+     search ,setSearch ,showSearch,setShowSearch
+    , cartItems,addToCart,getCartCount
+} 
+8 then we will open the navbar and add the function inside the addtocart icon 
+
+9 first we will get the function by using shop context 
+
+const {setShowSearch,getCartCount} = useContext(ShopContext)
+
+10 then we will add it here 
+
+  <img src={assests.shoppping_icon } className='w-9 min-w-5 ' alt="" />
+         <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
+ 
+
+//////////////////////////////////////////////////////////////////////////////////////
+step31 now we will work on the cart page and first we will get the product data 
+
+import 'react';
+import { useContext, useEffect, useState } from 'react';
+import { ShopContext } from '../context/ShopContext';
+import Title from '../componens/Title';
+import { assests } from '../assets/assests';
+const Cart = () => {
+  const {product,currency,cartItems,updaiteQuantity} = useContext(ShopContext);
+  const [cartData,setCartData] = useState([]);
+
+  useEffect(() => {
+    const tempData = [];  // Initialize an empty array to store structured cart data
+
+    for (const items in cartItems) {  // Loop through each product in cartItems
+        for (const item in cartItems[items]) {  // Loop through each size of the product
+            if (cartItems[items][item] > 0) {  // Check if the quantity of the item is greater than 0
+                tempData.push({  // Add the item details to the tempData array
+                    _id: items,  // Store the product ID
+                    size: item,  // Store the selected size
+                    quantity: cartItems[items][item]  // Store the quantity
+                });
+            }
+        }
+    }
+       setCartData(tempData)
+}, [cartItems]);  // This useEffect runs every time cartItems changes
+    
+return (
+  <div className='border-t pt-14'> {/* Main container for the cart */ }
+
+    <div className='text-2xl mb-3'>
+        <Title text1={'YOUR'} text2={'CART'}/> { /* Displays the title "YOUR CART" */ }
+    </div>
+
+    <div>
+        {
+          cartData.map((item, index) => {  // Loops through cartData to display each item
+            const productData = product.find((product) => product._id === item._id);  // Finds product details by matching ID
+
+            return (
+              <div key={index} className='py-4 border-t text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4'>
+                
+                <div className='flex items-start gap-6 '>
+                    <img className='w-16 sm:w-20' src={productData.image[0]} alt="" />  {/* Displays product image */}
+                    <div>
+                      <p className='text-xs sm:text-lg font-medium '>{productData.name}</p> {/* // Displays product name */}
+
+                      <div className='flex items-center gap-5 mt-2 '>
+                          <p>{currency}{productData.price}</p> {/* // Shows product price */ }
+                          <p className='px-2 sm:px3 sm:py-1 border bg-slate-50 '>{item.size}</p>  {/*  Shows selected size */} 
+                      </div>
+
+                    </div>
+                </div>
+
+                <input className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 ' 
+                       type="number" 
+                       min={1} 
+                       defaultValue={item.quantity}/>  {/* Input field to update quantity */}
+
+                <img onClick={()=>updateQuantity(item._id,item.size,0)} className='w-4 mr-4 sm:w-5 cursor-pointer' 
+                     src={assests.bin_icon} 
+                     alt="" />  { /* Delete icon to remove item from the cart*/ }  
+
+              </div>
+            )
+          })
+        }
+    </div>
+
+  </div>
+)
+}
+
+export default Cart;  // Exports the Cart component for use elsewhere
+
+
+1 then the  function to remove the icon in the usecontext here'
+ 
+    const updateQuantity = async (itemID, size, quantity) => {  
+      let cartData = structuredClone(cartItems);  // Create a deep copy of cartItems to avoid modifying the original state directly
+      cartData[itemID][size] = quantity;  // Update the quantity of the specific product size
+      setCartItems(cartData);  // Update the state with the modified cart data
+  };
+
+2 then we will make the quantity that when i change the quantity it will change it in the add to cart icon
+
+we will update the input here 
+
+ 
+        </div>
+   {/* (e) to get the value from the input and we will check if its empty or not */ }
+    {/* and we will check if this input is empty then return null else do update and get the item size and id and the number of input  */ }
+  <input onClick={(e)=> e.target.value === '' || e.target.value ==='0' ? null : updateQuantity(item._id , item.size,Number(e.target.value)) } className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 ' 
+    type="number" 
+    min={1} 
+    efaultValue={item.quantity}/>  {/* Input field to update quantity */} 
+
+3 then now we will display the total value of those
+we will create a new components file with the name CartTotal 
+
+4 then in the use context we will create a new function 
+  like this 
+
+   const getCartamount = async () => {  // Defines an asynchronous function to calculate the total cart amount
+    let totalAmount = 0;  // Initializes totalAmount to store the total price of the cart
+
+    for (const items in cartItems) {  // Loops through each item ID in cartItems
+
+       let itemInfo = product.find((product) => product._id === items);  // Finds product details using its ID
+
+       for (const item in cartItems[items]) {  // Loops through sizes of the current product
+        try {
+          if (cartItems[items][item] > 0) {  // Checks if the quantity is greater than 0
+            totalAmount += itemInfo.price * cartItems[items][item];  // Multiplies price by quantity and adds to total
+          }
+        } catch (error) {  
+          // Empty catch block to prevent errors from breaking the function
+        }
+       }
+    }
+
+5 then we wil continue on this compnents like this 
+
+import React, { useContext } from 'react'
+import {ShopContext} from '../context/ShopContext'
+import Title from '../componens/Title';
+const CartTotal = () => {
+  const {currency,delivery_fee,getCartAmount} = useContext(ShopContext);
+
+  return (
+    <div className='w-full'>
+      <div className='text-2xl'>
+         <Title text1={'CART'} text2={'TOTALS'}/>
+      </div>
+      <div className='flex flex-col gap-2 mt-2 text-sm '>
+          <div className='flex justify-between'>
+                <p>SubTotal</p>
+                <p>{currency} {getCartAmount()}.00</p>
+          </div>
+          <hr/>
+          <div className='flex justify-between'>
+            <p>Shipping Fee</p>
+            <p>{currency}{delivery_fee.00}</p>
+          </div>
+          <hr />
+          <div className='flex justify-between'>
+              <b>Total</b>
+              <b>{currency} {getCartAmount() === 0 ? 0 : getCartAmount() + delivery_fee.00}</b>
+          </div>
+      </div>
+    </div>
+  )
+}
+
+export default CartTotal
+
+6 then we will add this compnents into the carts like this 
+
+
+7 then it is work perfectly then we will add the place order button inside the cart after the totalcart
+
+         like this 
+           </div>
+        <div className='flex justify-end my-20 '>
+          <div className='w-full sm:w-[450px]'>
+              <CartTotal/>
+              <div className='w-full text-end'>
+                 <button className='bg-black text-white text-sm my-8 py-3 w-[60%]' >PROCEEC TO CHECKOUT</button>
+              </div>
+          </div>
+
+8 then we will link it to the page place-order by using the nagivate in the shopcontext 
+
+   like this 
+    const navigate = useNavigate() ; 
+    then we will add it to the value const 
+
+    const value = { 
+     product , currency , delivery_fee ,  // i can accses this accross all the compnents mtl assests.jsx
+     search ,setSearch ,showSearch,setShowSearch,
+     cartItems,addToCart,getCartCount , updateQuantity,getCartAmount,
+     naivgate, // here 
+} 
+
+9 then we will get back to the button and make on click 
+first we will get the nagivate 
+const {product,currency,cartItems,updateQuantity,nagivate} = useContext(ShopContext);
+10 then 
+ <button onClick = {()=> navigate('/place-order')} className='bg-black text-white text-sm my-8 py-3 w-[60%]' >PROCEEC TO CHECKOUT</button>
+
+STEP32/////////////////////////////////////////////////////////////////
+now we will work on the place-order page
+
+import 'react';
+import { useContext, useEffect, useState } from 'react';
+import { ShopContext } from '../context/ShopContext';
+import Title from '../componens/Title';
+import { assests } from '../assets/assests';
+import CartTotal from '../componens/CartTotal';
+const Cart = () => {
+  const {product,currency,cartItems,updateQuantity,navigate} = useContext(ShopContext);
+  const [cartData,setCartData] = useState([]);
+
+  useEffect(() => {
+    const tempData = [];  // Initialize an empty array to store structured cart data
+
+    for (const items in cartItems) {  // Loop through each product in cartItems
+        for (const item in cartItems[items]) {  // Loop through each size of the product
+            if (cartItems[items][item] > 0) {  // Check if the quantity of the item is greater than 0
+                tempData.push({  // Add the item details to the tempData array
+                    _id: items,  // Store the product ID
+                    size: item,  // Store the selected size
+                    quantity: cartItems[items][item]  // Store the quantity
+                });
+            }
+        }
+    }
+       setCartData(tempData)
+}, [cartItems]);  // This useEffect runs every time cartItems changes
+    
+return (
+  <div className='border-t pt-14'> {/* Main container for the cart */ }
+
+    <div className='text-2xl mb-3'>
+        <Title text1={'YOUR'} text2={'CART'}/> { /* Displays the title "YOUR CART" */ }
+    </div>
+
+    <div>
+        {
+          cartData.map((item, index) => {  // Loops through cartData to display each item
+            const productData = product.find((product) => product._id === item._id);  // Finds product details by matching ID
+
+            return (
+              <div key={index} className='py-4 border-t text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4'>
+                
+                <div className='flex items-start gap-6 '>
+                    <img className='w-16 sm:w-20' src={productData.image[0]} alt="" />  {/* Displays product image */}
+                    <div>
+                      <p className='text-xs sm:text-lg font-medium '>{productData.name}</p> {/* // Displays product name */}
+
+                      <div className='flex items-center gap-5 mt-2 '>
+                          <p>{currency}{productData.price}</p> {/* // Shows product price */ }
+                          <p className='px-2 sm:px3 sm:py-1 border bg-slate-50 '>{item.size}</p>  {/*  Shows selected size */} 
+                      </div>
+
+                    </div>
+                </div>
+                            {/* (e) to get the value from the input and we will check if its empty or not */ }
+                             {/* and we will check if this input is empty then return null else do update and get the item size and id and the number of input  */ }
+                <input onClick={(e)=> e.target.value === '' || e.target.value ==='0' ? null : updateQuantity(item._id , item.size,Number(e.target.value)) } className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1 ' 
+                       type="number" 
+                       min={1} 
+                       defaultValue={item.quantity}/>  {/* Input field to update quantity */}
+
+                <img onClick={()=>updateQuantity(item._id,item.size,0)} className='w-4 mr-4 sm:w-5 cursor-pointer' 
+                     src={assests.bin_icon} 
+                     alt="" />  { /* Delete icon to remove item from the cart*/ }  
+
+              </div>
+            )
+          })
+        }
+    </div>
+        <div className='flex justify-end my-20 '>
+          <div className='w-full sm:w-[450px]'>
+              <CartTotal/>
+              <div className='w-full text-end'>
+                 <button onClick = {()=> navigate('/place-order')} className='bg-black text-white text-sm my-8 py-3 w-[60%]' >PROCEEC TO CHECKOUT</button>
+              </div>
+          </div>
+
+        </div>
+  </div>
+)
+}
+
+export default Cart;  // Exports the Cart component for use elsewhere
+
+then we finish it by using the navigate in the button to link it into the orders page
+
+STEP33/////////////////////////////////////////////////////////////////
+now we will work on the orders page
+
+
+import 'react'
+import { useContext } from 'react'
+import { ShopContext } from '../context/ShopContext'
+import Title from '../componens/Title'
+const Orders = () => {
+  const {product ,currency } = useContext(ShopContext);
+  return (
+    <div className='border-t pt-16'>
+        
+        <div className='text-2xl'>
+
+        <Title text1={'MY'} text2={'ORDERS '}/>
+        </div>
+  
+      <div>
+        {/*----- here we will display the order data----- */ }
+        {
+          product.slice(1,4).map((item,index)=>(
+            <div key={index} className='py-4 border-t border-b text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between gap-4  '>
+               <div className='flex items-start gap-6 text-sm '>
+                     <img className='w-16 sm:w-20' src={item.image[0]}alt="" />
+                     <div>
+                      <p className='text-base font-medium '>{item.name}</p>
+                      <div className='flex items-center gap-3 mt-2 text-base text-gray-700'>
+                        <p className='text-lg'>{currency}{item.price}</p>
+                        <p>Quantity: 1</p>
+                        <p>Size : M</p>
+
+                      </div>
+                      <p className='mt-2'>Date : <span className='text-gray-400'>3 , march , 2025</span></p>
+                     </div>
+               </div>
+
+               <div className='md:w-1/2 flex justify-between'>
+               <div className='flex items-center gap-2'>
+                  <p className='min-w-2 h-2 rounded-full bg-green-500'></p>
+                  <p className='text-sm md:text-base'>Ready To Ship </p>
+ 
+               </div>
+                   <button className=' border px-4 py-2 text-sm font-medium rounded-sm'>Track Order</button>
+               </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    
+  )
+}
+
+export default Orders
+
+2 now we finish the disane and then we will add the logic for the orders page now we will work on the login page
+
+STEP34/////////////////////////////////////////////////////////////////
+
+Login page 
+////////////////
+1 we will open the navbar page and go to the profile img 
+and add a link for the profile icon 
+ <Link to='/Login'><img  src={assests.profile_icon} className='w-7 cursor-pointer' alt="prf icon" /> </Link> 
+////////////
+
+2 then we will disane the login page
+
+import 'react'
+import { useState } from 'react'
+
+const Login = () => {
+  const [currentState,setCurrentState] = useState('Login'); // hayde 7alet el sign up 
+  const onSubmitHandler = async(event) =>{ // event hye el input aya input rah ydakhlu el user
+     event.preventDefault();  // to remove the reload page after we sign up
+  }
+
+  return (
+    <form onSubmit={onSubmitHandler} className='flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800' >
+            
+            <div className='inline-flex items-center gap-2 mb-2 mt-10'>
+                   <p className='prata-regular text-3xl '>{currentState}</p> {/* it will be sign up */ }
+                   <hr  className='border-none h-[1.5px] w-8 bg-gray-800'/>
+
+            </div>
+             {/* iza lcurrent state  btsewe login la taaml shi else iza ma btsewe login hot l name */ }
+            {currentState === 'Login' ? '' : <input className='w-full px-3 py-2 border border-gray-800' type="text" placeholder='Name' required/>} 
+               <input className='w-full px-3 py-2 border border-gray-800' type="email" placeholder='Email 'required />
+               <input className='w-full px-3 py-2 border border-gray-800' type="password" placeholder='Password ' required/>
+               <div className='w-full flex justify-between text-sm mt-[8px]'>
+                
+                   <p className='cursor-pointer'>Forgot Your Password</p>
+                   {
+                    currentState === 'Login' 
+                    ? <p onClick={()=> setCurrentState('Sign Up')} className='cursor-pointer'>Create account </p>
+                    : <p onClick={()=> setCurrentState( 'Login ')} className='cursor-pointer'>Login Here</p>
+                   }
+                
+               </div>
+               <button className='bg-black text-white font-light px-8 p-2 mt-4'>{currentState === 'Login' ? 'Sign In ' : 'Sign Up'}</button>
+    </form>
+  )
+}
+
+export default Login
+
+now we finish the login page disane
+
+STEP35/////////////////////////////////////////////////////////////////
+now we will disane the about page
+
+import 'react'
+import Title from '../componens/Title'
+import { assests } from '../assets/assests'
+import NewesLetterBox from '../componens/NewsLetterBox'
+
+const About = () => {
+  return (
+    <div>
+      <div className='text-2xl text-center pt-8 border-t'>
+        <Title text1={'ABOUT'} text2={'US'}/> 
+      </div>
+
+      <div className='my-10 flex flex-col md:flex-row gap-16'>
+        <img className='w-full md:max-w-[450px] ' src={assests.abaya1} alt="" />
+
+        <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
+          <p>Welcome to our online store, where fashion meets convenience! We specialize in offering high-quality, trendy, and stylish clothing for all occasions. Our goal is to provide our customers with the best selection of outfits, ensuring that you look and feel your best at all times.</p>
+          <p>With a wide range of imported outfits, we take pride in curating collections that cater to diverse fashion needs. Whether you’re looking for casual wear, formal attire, or statement pieces, we have something for everyone.</p>
+          <b className='text-gray-800'>Our Mission</b>
+          <p>Our mission is to make fashion accessible to everyone while maintaining quality and affordability. We believe that style should not be compromised, and our dedicated team works hard to bring you the latest trends, premium fabrics, and exceptional designs.</p>
+        </div>
+      </div>
+
+      <div className='text-4xl py-4'>
+        <Title text1={'WHY'} text2={'CHOOSE US'}/>
+      </div>
+
+      <div className='flex flex-col md:flex-row text-sm mb-20'>
+        {/* ------- Quality Assurance ----- */ }
+        <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
+          <b>Quality Assurance</b>
+          <p className='text-gray-600'>We prioritize quality in every piece we offer. Our products undergo strict quality control to ensure durability, comfort, and elegance. When you shop with us, you can trust that you're receiving only the best.</p>
+        </div>
+
+        {/* ------- Convenience ----- */ }
+        <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
+          <b>Convenience</b>
+          <p className='text-gray-600'>Shopping with us is seamless and hassle-free. Our user-friendly website, secure payment options, and fast delivery services ensure that you get your favorite outfits without any stress.</p>
+        </div>
+
+        {/* ------- Exceptional Customer Service ----- */ }
+        <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
+          <b>Exceptional Customer Service</b>
+          <p className='text-gray-600'>Customer satisfaction is our top priority. Our dedicated support team is always available to assist you with any inquiries, ensuring a smooth and enjoyable shopping experience.</p>
+        </div>
+      </div>
+
+      <div>
+        <NewesLetterBox/>
+      </div>
+    </div>
+  )
+}
+
+export default About
+
+like this we finish the about us page 
+
+STEP36/////////////////////////////////////////////////////////////////
+
+we will create and disane the contact page
+
+import 'react'
+import Title from '../componens/Title'
+import { assests } from '../assets/assests'
+import NewesLetterBox from '../componens/NewsLetterBox'
+const contact = () => {
+  return (
+    <div>
+      <div className='text-center text-2xl pt-10 border-t'>
+ 
+       <Title text1={'CONTACT'} text2={'US'}/>
+       
+      </div>
+      
+      <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28'>
+              <img className='w-full md:max-w-[480px]' src={assests.contac_us} alt="" />
+      
+      <div className='flex flex-col justify-center items-start gap-6'>
+          <p className='font-semibold text-xl text-gray-600'>Our Store</p>
+          <p className='text-gray-500'>ADDRESS : Triploli beside.. <br/> in Lebanon </p>
+          <p className='text-gray-500'> Tel : +961 7829192 < br/> Email : anything@gmail.com</p>
+          <p className='font-semibold text-xl text-gray-600'>Careers AT online cloth by  .....By</p>
+          <p className=' text-gray-500'> Learn More about our teams and job openings.</p>
+          <button className=' border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button>
+
+      </div>
+      </div>
+      <NewesLetterBox/> 
+    </div>
+  )
+}
+
+export default contact
+
+////// 
+Now we finish all the front end w ana rah ghayr ala asme2 lproduct wdif img wel8i bs ma aktar

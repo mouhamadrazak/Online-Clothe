@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar{
+  display:none;
+}
+a.active hr {
+    display : block ; /* mean make it visible */ 
+}
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@media (max-width: 640px){ /* 3shen el navbar bs kun fethu aarf 3ala aya safha w2d */ 
+a.active{
+  background-color:pink;
+  color:white;
+}
+}
