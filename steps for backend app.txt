@@ -4174,3 +4174,7 @@ export default Orders;
 3 THE OTHER STEP THAT I WANT ALSO NOTIFCATE THE USER THAT IF I CHANGE THE STATUS FROM ADMIN IT WILL TELL THEM 
 ******NOTTEEE If we get any error in render that because the bycrypt package we will 
 npm install bycryptjs and then we will change all the import in backend files to import bycryptjs
+
+
+************notte for frontend 
+install the package of react toastify because we dont have it in backend and we use it in the app.jsx
