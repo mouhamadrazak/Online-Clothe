@@ -12,7 +12,7 @@ import Footer from './componens/Footer'
 import Collection from './pages/collection'
 import Contact from './pages/Contact'
 import SearchBar from './componens/SearchBar'
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 {/*dyman lzm khali awl esm bl file capital*/}
