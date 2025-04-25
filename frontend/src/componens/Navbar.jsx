@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useContext, useState } from 'react'
 import {assests} from '../assets/assests'
-import {Link, Links, NavLink} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
