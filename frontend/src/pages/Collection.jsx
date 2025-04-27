@@ -41,12 +41,14 @@ const Collection = () => {
   const applyFilter = () => {
     let productsCopy = [...products]; // Always make a copy first
 
-    if (showSearch && search.trim() !== '') { // Fixed: ignore spaces
+    if (showSearch && search.trim() !== '') { 
+      // Apply search logic: ignore spaces and case sensitivity
+      const searchTerm = search.trim().toLowerCase();  // ignore spaces from search input
       productsCopy = productsCopy.filter(item =>
-        item.name.toLowerCase().includes(search.trim().toLowerCase())
+        item.name.toLowerCase().replace(/\s+/g, '').includes(searchTerm.replace(/\s+/g, ''))
       );
     }
-
+    
     if (category.length > 0) { // ✅ Check if any category is selected  
       productsCopy = productsCopy.filter(item => category.includes(item.category));
       // ✅ Keep only products that match selected categories  
@@ -167,3 +169,4 @@ const Collection = () => {
 };
 
 export default Collection;
+
