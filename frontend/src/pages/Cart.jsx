@@ -5,8 +5,7 @@ import Title from "../componens/Title";
 import { assests } from "../assets/assests";
 import CartTotal from "../componens/CartTotal";
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate } =
-    useContext(ShopContext);
+  const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
