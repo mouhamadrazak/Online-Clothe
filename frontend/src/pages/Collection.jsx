@@ -44,9 +44,12 @@ const Collection = () => {
     const applyFilter = () => {  
       let productsCopy = products.slice(); // ✅ Create a copy of the product array 
 
-      if (showSearch && search) { // iza true
-        productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
-      }
+      if (showSearch && search) {
+  const cleanSearch = search.replace(/\s+/g, '').toLowerCase(); // remove all spaces from search
+  productsCopy = productsCopy.filter(item => item.name.replace(/\s+/g, '').toLowerCase().includes(cleanSearch) // remove spaces from name too
+  );
+}
+
     
       if (category.length > 0) { // ✅ Check if any category is selected  
         productsCopy = productsCopy.filter(item => category.includes(item.category));  
