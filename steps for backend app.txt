@@ -4172,9 +4172,203 @@ export default Orders;
 1 NEXT STEP THAT I WANT TO ADD THE LOGIC FOR FORGOT PASSWPORD
 2 THE OTHER STEP THAT I WANT TO ADD NOTIFCATE TO THE ADMIN SO IF ANY ORDERS COME IT WILL NOTIFICATE
 3 THE OTHER STEP THAT I WANT ALSO NOTIFCATE THE USER THAT IF I CHANGE THE STATUS FROM ADMIN IT WILL TELL THEM 
+
+///////////////////////////////////DEPLOY ON SERVER//////////////////////////////////////////////
 ******NOTTEEE If we get any error in render that because the bycrypt package we will 
 npm install bycryptjs and then we will change all the import in backend files to import bycryptjs
 
 
 ************notte for frontend 
-install the package of react toastify because we dont have it in backend and we use it in the app.jsx
+install the package of react toastify because we dont have it in frontend and we use it in the app.jsx
+then we will fix this also in app.jsx in frontend import Product from './pages/Product' and all the import for this -----
+=============================================================================================================================
+import 'react'
+import {Route,Routes } from 'react-router-dom'
+import About from  './pages/About'
+import Product from './pages/Product'
+import Cart from './pages/Cart'
+import Login from './pages/Login'
+import Placeorder from './pages/Placeorder'
+import Orders from './pages/Orders' 
+import Navbar from './componens/Navbar'
+import Home from './pages/Home'
+import Footer from './componens/Footer'
+import Collection from './pages/Collection'
+import Contact from './pages/Contact'
+import SearchBar from './componens/SearchBar'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+=============================================================================================================================
+then we will open the hom jsx and fix this 
+------------------------------------------
+import Hero from '../componens/Hero'
+=============================================================================================================================
+   after we fix thatt itss completlyy workk 
+
+then we will deploy the admin and the admins deploying is perfectly workkk!!!!
+now we having a problem that is when i refresh the page it will gone that because we using react router dom to fix that
+1 * we have to rewrites we open the rewrites in our sites that deploy and do this'
+2 * source : /*
+    destiniton : /index.html
+    action : rewrites 
+we will do this for both of frontend and admin pannel 
+and like this our deploy page is perfectly workkk on server render 
+=============================================================================================================================
+//////////////////////////////FIX THE ISSU ON OUR WEBSITE AFTER WE TEST //////////////////////////////////////
+  1 * first issue that is if the orders get so much in our data base we will add the logic that we can remove the order from admin 
+  2 * when we open single product and refresh the page the singleProduct will be gone to fix that we will ope product page and do this  -------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
+ useEffect(() => {
+    fetchProductData(); // Run this function when component loads
+  }, [productId,products]);
+-------------------------------------------------------------------------------------------------------------------------------------
+ 3 * like this we fix the refresh issue then we will fix the icon of the user and cart shop because if we in dark mode it will be gone so we will add it again -------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+so we fix the profile icon and the bin icon and we change the hero image and the logo and the 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 4 *When I click a related product, I want the page to scroll to top — not stay scrolled down inside "Related Products" — so the new product shows properly at the top.Solution: in product.jsx----------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ useEffect(() => {
+    fetchProductData(); // Run this function when component loads
+    window.scrollTo({ top: 0, behavior: 'smooth' });   // when open the related products scroll to top smoothly
+  }, [productId,products]);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 5 * i want that when i add to cart an item some pro effect will happen so the user will know this cart will change like this  in (product.jsx) page--------------
+------------------------------------------------------------------------------------------------------------------------------ 
+ const [clicked, setClicked] = useState(false); first create clicked to handle the click 
+
+  // function to the add to cart the product data with size with animation
+const handleAddToCart = () => {
+  addToCart(productData._id, Size);
+  setClicked(true); onclick set it true 
+  setTimeout(() => setClicked(false), 500); // Reset after 0.5s
+};
+
+  <button onClick={handleAddToCart} className={`bg-black text-white px-8 py-3 active:bg-gray-700 transition-transform duration-300 ${clicked ? 'scale-110' : ''}`}>ADD TO CART</button>
+------------------------------------------------------------------------------------------------------------------------------
+ 6 * like this we fix the animation for this add to cart  
+ 7 * now we will the the animation that when i click on the cart it will show some animation like this in (Navbar.jsx) page---------------------
+ ------------------------------------------------------------------------------------------------------------------------------
+ // eslint-disable-next-line no-unused-vars
+import React, { useContext, useState } from 'react'
+import {assests} from '../assets/assests'
+import {Link, NavLink} from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext';
+
+const Navbar = () => {
+      
+   const [visible,setVisible] = useState(false); {/*this for the menu bar icon */ }
+   const {setShowSearch,getCartCount,navigate,token,setToken,setCartItems} = useContext(ShopContext);
+   const [animate, setAnimate] = useState(false);
+
+   const logout = ()=>{
+    navigate('/login')
+    localStorage.removeItem('token') // we will remove the token from the local storage when he logout
+    setToken('') // clearing the token
+    setCartItems({})// clearing the cart items
+   }
+
+   // this function when i clicked it will navigate me mean redirect me to the cart page  and it will add some animation when i click on cart icon
+   const handleClick = () => {
+    setAnimate(true);
+    setTimeout(() => {setAnimate(false); 
+    navigate('/cart'); // Navigate after animation
+    }, 400); // 0.4 seconds
+  };
+  return (
+
+
+                 {/* //////////////////////add to cart ////////////////////// */ }
+                 <div className="relative cursor-pointer" onClick={handleClick}>
+               <img src={assests.shoppping_icon} className={`w-[20px] min-w-4 transition-transform duration-300 ${animate ? 'scale-125 rotate-12' : '' }`} alt=""></img>
+               <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">{getCartCount()}</p>
+                      </div>
+------------------------------------------------------------------------------------------------------------------------------
+ 8 *  that is the change that i make for the animation to te carts page i can update the change in Navbar(.jsx)
+ 9 *  then we will make the linked page that when i clieck on page and go to another page it will so som animation so we will do this -------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------
+import 'react'
+import {Route,Routes,useLocation  } from 'react-router-dom'
+import About from  './pages/About'
+import Product from './pages/Product'
+import Cart from './pages/Cart'
+import Login from './pages/Login'
+import Placeorder from './pages/Placeorder'
+import Orders from './pages/Orders' 
+import Navbar from './componens/Navbar'
+import Home from './pages/Home'
+import Footer from './componens/Footer'
+import Collection from './pages/Collection'
+import Contact from './pages/Contact'
+import SearchBar from './componens/SearchBar'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from 'react';
+
+{/*dyman lzm khali awl esm bl file capital*/}
+const App = () => {
+
+  const location = useLocation();
+  const [fade, setFade] = useState(false);
+
+  // this an effect that when we open any linked page it will show some effects 
+  useEffect(() => {
+    setFade(true);
+    const timeout = setTimeout(() => {
+      setFade(false);
+    }, 150); // Small delay
+    return () => clearTimeout(timeout);
+  }, [location.pathname]);
+
+
+  return (         
+  <div className= {`px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] transition-all  ${fade ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>  {/*this an edit for the view on the mobile and all screens with effect and animation for all links pages */}
+----------------------------------------------------------------------------------------------------------------------------------------------------
+ 10 * so now if we scroll for page to another it will be soo smooth then we will add this to index.css -----------
+----------------------------------------------------------------------------------------------------------
+html {
+  scroll-behavior: smooth;
+}
+----------------------------------------------------------------------------------------------------------
+
+   11 * now we finish adding the animation now we will remove the onclick on the wish method or omt method we will make this edit we will open the PlaceOrder page and do this-----
+----------------------------------------------------------------------------------------------------------
+<div className="flex flex-col lg:flex-row gap-3">
+            <div  className="flex items-center gap-3 border p-2 px-3 cursor-pointer">
+              <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'whish' ? 'bg-green-400' : ''}`}></p>
+              <p className="mx-4 text-sm font-medium text-gray-500">Call us To Pay</p>
+              <img src={assests.which_icon} alt="" className="h-6 mx-7" />
+            </div>
+
+            <div  className="flex items-center gap-3 border p-2 px-3 cursor-pointer">
+              <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'omt' ? 'bg-green-400' : ''}`}></p>
+              <p className="mx-4 text-sm font-medium text-gray-500">Call us To Pay</p>
+              <img src={assests.omt_icon} alt="" className="h-4 mx-7" />
+            </div>
+----------------------------------------------------------------------------------------------------------
+13 * then we will change the admins response to the orders to words more clear like this in admin and in (Order.jsx) ----------------
+----------------------------------------------------------------------------------------------------
+ <select
+                defaultValue={order.status} onChange={(event)=>statusHandler(event,order._id)}
+                className="mt-2 sm:mt-0 border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="Your Order Placed">Your Order Placed</option>
+                <option value="We Recived Your Order"> We Recived Your Order</option>
+                <option value="your order will Be deliverd Soon">Your Order Will Be Deliverd Soon</option>
+                <option value="Your order Is out of stock">Out Of Stock</option>
+                <option value=" Your order is Deliverd">Your  Order Is Deliverd</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------
+1 NEXT STEP THAT I WANT TO ADD THE LOGIC FOR FORGOT PASSWPORD
+2 THE OTHER STEP THAT I WANT TO ADD NOTIFCATE TO THE ADMIN SO IF ANY ORDERS COME IT WILL NOTIFICATE
+3 THE OTHER STEP THAT I WANT ALSO NOTIFCATE THE USER THAT IF I CHANGE THE STATUS FROM ADMIN IT WILL TELL THEM 
+
+///////////////////////////////STEP25 ADD NOTIFICATION ON OUR GMAIL WHENEVER ORDERS UPDATED ////////////////////////////////////////////////
+   1 First we want to install those  2 package in our backend folder (npm install mongodb nodemailer) then we will create a new files inside the cntrollers with the name (adminNotifer.js)and add the logic for that like this ---------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

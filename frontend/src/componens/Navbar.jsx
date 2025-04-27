@@ -7,16 +7,23 @@ import { ShopContext } from '../context/ShopContext';
 const Navbar = () => {
       
    const [visible,setVisible] = useState(false); {/*this for the menu bar icon */ }
-
    const {setShowSearch,getCartCount,navigate,token,setToken,setCartItems} = useContext(ShopContext);
+   const [animate, setAnimate] = useState(false);
 
    const logout = ()=>{
     navigate('/login')
     localStorage.removeItem('token') // we will remove the token from the local storage when he logout
     setToken('') // clearing the token
     setCartItems({})// clearing the cart items
- 
    }
+
+   // this function when i clicked it will navigate me mean redirect me to the cart page  and it will add some animation when i click on cart icon
+   const handleClick = () => {
+    setAnimate(true);
+    setTimeout(() => {setAnimate(false); 
+    navigate('/cart'); // Navigate after animation
+    }, 400); // 0.4 seconds
+  };
   return (
  
            
@@ -75,7 +82,7 @@ const Navbar = () => {
              {/*/////////////////////profile icon bar  ////////////////////// */ }
 
       <div className='group relative'>  {/*relative iza fi tnen box bsiru iza fetu bba3d 3adi */ }
-    <img onClick={()=> token ? null : navigate('/login')} src={assests.profile_icon} className='w-7 cursor-pointer' alt="prf icon" /> {/*if there is token available so do null else took me to the login page */}
+    <img onClick={()=> token ? null : navigate('/login')} src={assests.profile_icon} className='w-[17px] cursor-pointer' alt="prf icon" /> {/*if there is token available so do null else took me to the login page */}
              {/*Drop down Menu */ }
            {/* group-hover block mean on hover show the group and hidden la nkhfyon wybynu onhover */}
     { token &&  <div className='dropdown-menu group-hover:block hidden absolute  right-0 pt-4 '> {/* explain for token && so we ask if the token available so show the div that she have the profile and orders  */}
@@ -89,10 +96,10 @@ const Navbar = () => {
        </div> 
 
                  {/* //////////////////////add to cart ////////////////////// */ }
-       <Link to='/cart' className='relative'>  {/* link nafs el href link to so ana bs ekbos al cart btkhdne al page t3ita */ }
-         <img src={assests.shoppping_icon } className='w-9 min-w-5 ' alt="" />
-         <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
-       </Link>
+                 <div className="relative cursor-pointer" onClick={handleClick}>
+               <img src={assests.shoppping_icon} className={`w-[20px] min-w-4 transition-transform duration-300 ${animate ? 'scale-125 rotate-12' : '' }`} alt=""></img>
+               <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">{getCartCount()}</p>
+                      </div>
 
                      {/* /////////////////Menu icon /////////////////// */ }
               <img onClick={()=>setVisible(true)} src={assests.menu_icon} className='cursor-pointer sm:hidden w-5 ' /> {/* min width men el 640px screen size bkun lmenu hidden */ }

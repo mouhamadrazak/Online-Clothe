@@ -82,7 +82,7 @@ const Orders = ({ token }) => {
               <p><span className="font-semibold">City:</span> {order.address.city}</p>
               <p><span className="font-semibold">Street:</span> {order.address.street}</p>
               <p><span className="font-semibold">Zip Code:</span> {order.address.zipCode}</p>
-              <p><span className="font-semibold">📞 Phone:</span> {order.address.phone}</p>
+              <p><span className="font-semibold">📞Phone:</span> {order.address.phone}</p>
               <p><span className="font-semibold">Email:</span> {order.address.email}</p>
             </div>
   
@@ -109,11 +109,11 @@ const Orders = ({ token }) => {
                 defaultValue={order.status} onChange={(event)=>statusHandler(event,order._id)}
                 className="mt-2 sm:mt-0 border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="Order Placed">Order Placed</option>
-                <option value="Packing">Packing</option>
-                <option value="Shipped">Shipped</option>
-                <option value="Out For delivery">Out For delivery</option>
-                <option value="Deliverd">Deliverd</option>
+                <option value="Your Order Placed">Your Order Placed</option>
+                <option value="We Recived Your Order"> We Recived Your Order</option>
+                <option value="your order will Be deliverd Soon">Your Order Will Be Deliverd Soon</option>
+                <option value="Your order Is out of stock">Out Of Stock</option>
+                <option value=" Your order is Deliverd">Your  Order Is Deliverd</option>
               </select>
             </div>
           </div>

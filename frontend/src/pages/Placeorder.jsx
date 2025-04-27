@@ -83,7 +83,7 @@ const Placeorder = () => {
               setCartItems({});         // ✅ Clear the cart
               navigate('/orders');      // ✅ Navigate to orders page
             } else {
-              toast.error(response.data.message);
+              toast.error(response.data.message );
             }
         
             break;
@@ -144,14 +144,16 @@ const Placeorder = () => {
 
           {/* Payment Method Selection */}
           <div className="flex flex-col lg:flex-row gap-3">
-            <div onClick={() => setMethod('whish')} className="flex items-center gap-3 border p-2 px-3 cursor-pointer">
+            <div  className="flex items-center gap-3 border p-2 px-3 cursor-pointer">
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'whish' ? 'bg-green-400' : ''}`}></p>
-              <img src={assests.which_icon} alt="" className="h-4 mx-4" />
+              <p className="mx-4 text-sm font-medium text-gray-500">Call us To Pay</p>
+              <img src={assests.which_icon} alt="" className="h-6 mx-7" />
             </div>
 
-            <div onClick={() => setMethod('omt')} className="flex items-center gap-3 border p-2 px-3 cursor-pointer">
+            <div  className="flex items-center gap-3 border p-2 px-3 cursor-pointer">
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'omt' ? 'bg-green-400' : ''}`}></p>
-              <img src={assests.omt_icon} alt="" className="h-4 mx-4" />
+              <p className="mx-4 text-sm font-medium text-gray-500">Call us To Pay</p>
+              <img src={assests.omt_icon} alt="" className="h-4 mx-7" />
             </div>
 
             <div onClick={() => setMethod('COD')} className="flex items-center gap-3 border p-2 px-3 cursor-pointer">

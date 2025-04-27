@@ -1,6 +1,6 @@
 import abaya1 from './abaya1.jpg' /* am aamol import la kelshi whawn 3a hale */ 
 import abaya2 from './abaya2.jpg'
-import abaya3 from './abaya3.jpg'    
+import abaya3 from './abaya3.png'
 import arrow_btn from './arrow_btn.png'
 import pause_icon from './pause_icon.png'
 import play_video from './play_video.png'
@@ -20,41 +20,7 @@ import bin_icon from './bin_icon.png'
 import which_icon from './which_icon.png'
 import omt_icon from './omt_icon.png'
 import contac_us from './contact_us.jpg'
-import Man_beijepants from  './Man_beijepants.jpg'
-import Man_cuttonWinterShirt from './Man_cuttonWinterShirt.jpg'
-import Man_jeans_pants from './Man_jeans_pants.jpg'
-import Man_lightgray_pants from './Man_lightgray_pants.jpg'
-import Man_redpants from './Man_redpants.jpg'
-import Man_ufo_pants from './Man_ufo_pants.jpg'
-import Man_whitepants from './Man_whitepants.jpg';
-import Men_highpolo from './Men_highpolo.jpg';
-import Men_polo from './Men_polo.jpg';
-import Men_whitte_polo from './Men_whitte_polo.jpg';
-import Men_WinterSet from './Men_WinterSet.jpg';
-import Men_Winterset2 from './Men_Winterset2.jpg';
-import Woman_blackpants from './Woman_blackpants.jpg';
-import Woman_coat from './Woman_coat.jpg';
-import Woman_grayShirt from './Woman_grayShirt.jpg';
-import Woman_redcoat from './Woman_redcoat.jpg';
-import Women_beijewintershirt from './Women_beijewintershirt.jpg';
-import Women_cargopants from './Women_cargopants.jpg';
-import Women_shirt from './Women_shirt.jpg';
-import Women_whitepants from './Women_whitepants.jpg';
-import Women_winterset from './Women_winterset.jpg';
-import Women_wintershirt from './Women_wintershirt.jpg';
-import Kids_Beijejacket from './Kids_Beijejacket.jpg';
-import Kids_black_jacket from './Kids_black_jacket.jpg';
-import Kids_Pijama from './Kids_Pijama.jpg';
-import Kids_PinkJacket from './Kids_PinkJacket.jpg';
-import Kids_set from './Kids_set.jpg';
-import Dress_Bieje from './Dress_Bieje.jpg';
-import Dress_Black_Party from './Dress_Black_Party.jpg';
-import Dress_gray from './Dress_gray.jpg';
-import Dress_light from './Dress_light.jpg';
-import Dress_light_gray from './Dress_light_gray.jpg';
-import Dress_Light_Pink from './Dress_Light_Pink.jpg';
-import Dress_pink from './Dress_pink.jpg';
-import Dress_Pink_Party from './Dress_Pink_Party.jpg';
+
 
 
 

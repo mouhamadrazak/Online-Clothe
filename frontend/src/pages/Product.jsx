@@ -7,11 +7,11 @@ import Title from '../componens/Title';
 import RelatedProducts from '../componens/RelatedProducts';
 const Product = () => {
   const { productId } = useParams(); // Get product ID from URL
-  const { products,currency,addToCart} = useContext(ShopContext); // Get all products from ShopContext
+  const { products,currency,addToCart,token} = useContext(ShopContext); // Get all products from ShopContext
   const [productData, setProductData] = useState(false); // Stores selected product details
   const [Image, setImage] = useState(''); // Stores the main product image
   const [Size,setSize] = useState('') ;   // 
-
+  const [clicked, setClicked] = useState(false); 
 /* ------------explain async---------------- // 
 async allows a function to work with Promises and handle operations that take time.
 Inside an async function, you can use await to pause execution until a task is complete.
@@ -32,7 +32,16 @@ This helps prevent blocking the page while waiting for data.
 
   useEffect(() => {
     fetchProductData(); // Run this function when component loads
-  }, [productId]);
+    window.scrollTo({ top: 0, behavior: 'smooth' });   // when open the related products scroll to top smoothly
+  }, [productId,products]);
+
+ 
+  // function to the add to cart the product data with size with animation
+const handleAddToCart = () => {
+  addToCart(productData._id, Size);
+  setClicked(true);
+  setTimeout(() => setClicked(false), 500); // Reset after 0.5s
+};
 
   return productData ? ( 
     <div className='border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100'>
@@ -80,7 +89,7 @@ This helps prevent blocking the page while waiting for data.
 
                    </div>
              </div>
-             <button onClick={()=>addToCart(productData._id,Size)} className='bg-black text-white px-8 py-3 active:bg-gray-700'>ADD TO CART </button>
+             <button onClick={handleAddToCart} className={`bg-black text-white px-8 py-3 active:bg-gray-700 transition-transform duration-300 ${clicked ? 'scale-110' : ''}`}>ADD TO CART</button>
               <hr className='mt-8 sm:w-[80%]' />
               <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1 '>
                 <p>100% Original Product</p>

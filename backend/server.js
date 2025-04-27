@@ -7,12 +7,12 @@ import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
-
+// import {main} from './controllers/adminNotifer.js'
 // ------- APP Config ----------
 const app = express();
 const port = process.env.PORT || 4200;
 connectDB(); // Connect to MongoDB
-
+//main();
 // Log ImageKit config (to check if it's working)
 console.log("ImageKit Config:", imagekit); // because is not a function
 
