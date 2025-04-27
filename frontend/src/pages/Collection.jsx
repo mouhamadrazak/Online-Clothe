@@ -59,7 +59,54 @@ const Collection = () => {
       // ✅ Keep only products that match selected subcategories  
     }
 
+<<<<<<< HEAD
     setFilterProduct(productsCopy); // ✅ Update state to show filtered products  
+=======
+    const applyFilter = () => {  
+      let productsCopy = products.slice(); // ✅ Create a copy of the product array 
+      
+             (showSearch && search) { // iza true
+        productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+      }
+    
+
+    
+      if (category.length > 0) { // ✅ Check if any category is selected  
+        productsCopy = productsCopy.filter(item => category.includes(item.category));  
+        // ✅ Keep only products that match selected categories  
+      }  
+      
+      if (subCategory.length > 0) { // ✅ Check if any category is selected  
+        productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));  
+        // ✅ Keep only products that match selected categories  
+      }  
+    
+      setFilterProduct(productsCopy); // ✅ Update state to show filtered products  
+    };
+    
+
+       /* ////// for the prices low and high filter  ///////*/ 
+
+    const sortProduct = () => {
+      let fpCopy = filterProduct.slice();  // Create a copy of filterProduct to avoid modifying the original array.
+  
+      switch(sortType) {
+          case 'low-high':  
+              setFilterProduct(fpCopy.sort((a, b) => (a.price - b.price)));  
+              // Sorts in ascending order (cheapest first).
+              break;
+  
+          case 'high-low':  
+              setFilterProduct(fpCopy.sort((a, b) => (b.price - a.price)));  
+              // Sorts in descending order (most expensive first).
+              break;
+  
+          default:  
+              applyFilter();  
+              // If sortType is not recognized, reset the filters.
+              break;
+      }
+>>>>>>> 5cc6b57c9b4b304ee8fb16569138e8953dc635d6
   };
 
   /* ////// for the prices low and high filter  /////// */
