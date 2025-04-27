@@ -92,7 +92,7 @@ const Collection = () => {
 
   useEffect(() => {
     setFilterProduct(products); {/* setFilterProduct(product.slice(0,5)); law bde jz2 copy mnon baaml hk bs hala bde yehon kellon */}
-  }, [products]);
+  }, []);
 
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t '> {/*flex row for laptop screen bynhtu l item jamb b3d */}
