@@ -41,14 +41,12 @@ const Collection = () => {
   const applyFilter = () => {
     let productsCopy = [...products]; // Always make a copy first
 
-    if (showSearch && search.trim() !== '') { 
-      // Apply search logic: ignore spaces and case sensitivity
-      const searchTerm = search.trim().toLowerCase();  // ignore spaces from search input
+    if (showSearch && search.trim() !== '') { // Fixed: ignore spaces
       productsCopy = productsCopy.filter(item =>
-        item.name.toLowerCase().replace(/\s+/g, '').includes(searchTerm.replace(/\s+/g, ''))
+        item.name.toLowerCase().includes(search.trim().toLowerCase())
       );
     }
-    
+
     if (category.length > 0) { // ✅ Check if any category is selected  
       productsCopy = productsCopy.filter(item => category.includes(item.category));
       // ✅ Keep only products that match selected categories  
@@ -94,7 +92,7 @@ const Collection = () => {
 
   useEffect(() => {
     setFilterProduct(products); {/* setFilterProduct(product.slice(0,5)); law bde jz2 copy mnon baaml hk bs hala bde yehon kellon */}
-  }, []);
+  }, [products]);
 
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t '> {/*flex row for laptop screen bynhtu l item jamb b3d */}
